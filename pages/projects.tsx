@@ -4,7 +4,14 @@ import Head from "next/Head";
 
 const Container = styled.div`
   margin: 0 2%;
-  p {
+  display: grid;
+  h2 {
+    margin-top: 1%;
+    margin-bottom: 0;
+  }
+  h2,
+  h4 {
+    text-align: center;
     line-height: 2rem;
   }
 `;
@@ -21,14 +28,14 @@ const projects = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <h1>Projects</h1>
-        <p>
+        <h2>Projects</h2>
+        <h4>
           The following are projects I have worked on, roughly in order from
           newest to oldest.
           <br />
           Currently, my learning is focus is on refactoring this site using
           Next.js and Typescript
-        </p>
+        </h4>
         <ProjectCard />
       </Container>
     </>

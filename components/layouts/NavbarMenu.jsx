@@ -1,40 +1,38 @@
-import styled from "styled-components";
-import Link from "next/Link";
+import styled from 'styled-components'
+import Link from 'next/Link'
 
 const LinkStyle = styled.a`
   padding: 5%;
   height: 100%;
   display: grid;
   align-items: center;
-  // border-bottom: 3px solid white;
   :hover {
-    margin: 3px 0px;
-    animation: links 0.15s ease-in 1 normal forwards;
+    animation: links 0.3s ease-in 1 normal forwards;
   }
   @keyframes links {
     to {
-      border-bottom: 5px solid rgba(255, 255, 244, 0.3);
+      border-bottom: 7px solid rgba(255, 255, 244, 0.4);
+      font-size: 110%;
     }
   }
-`;
+`
 
-const MenuButton = styled.div``;
+const MenuButton = styled.div``
 
 const NavbarMenu = () => {
+  let NAVITEMS = ['about', 'projects']
   return (
     <>
-      <Link href="/" passHref>
+      <Link href='/' passHref>
         <LinkStyle>Home</LinkStyle>
       </Link>
-      <Link href="/about" passHref>
-        <LinkStyle>About</LinkStyle>
-      </Link>
-      <Link href="/projects" passHref>
-        <LinkStyle>Projects</LinkStyle>
-      </Link>
-      <span className="menuButton"></span>
+      {NAVITEMS.map(n => (
+        <Link href={n} passHref>
+          <LinkStyle>{n[0].toUpperCase() + n.substring(1)}</LinkStyle>
+        </Link>
+      ))}
     </>
-  );
-};
+  )
+}
 
-export default NavbarMenu;
+export default NavbarMenu

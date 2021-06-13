@@ -1,62 +1,65 @@
-import styled from "styled-components";
-import NavbarMenu from "./layouts/NavbarMenu";
-import Link from "next/Link";
+import styled from 'styled-components'
+import NavbarMenu from './layouts/NavbarMenu'
+import Link from 'next/Link'
+import DarkModeToggle from './DarkModeToggle'
 
 const Nav = styled.nav`
-  // background: #000;
-  background: lightblue;
-  // background-clip: content-box;
-  color: rgba(255,255,255,1);
-  
+  z-index: 1;
+  overflow: hidden;
+  background: inherit;
+  color: inherit;
   display: grid;
-  position: sticky;
-  top: 0;
-  h1 {
-    justify-self: center;
-  }
-  grid-template-columns: 10% auto 35%;
+  grid-template-columns: 10% auto 35% 10%;
+  position: fixed;
+  width: 100%;
+  height: 15%;
   align-self: center;
+  top: 0;
+  left: 0;
+  box-shadow: 4px 2px 8px 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
   .menuitems {
     align-items: center;
     height: 100%;
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: 100%;
+    grid-template-rows: 1fr;
   }
-  box-shadow: 4px 2px 8px 0 rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  justify-content: space-between;
+  #logo {
+    align-self: center;
+  }
+  #pageTitle {
+    align-self: center;
+  }
   a {
     text-align: center;
   }
-  #logo {
-    height: 100%;
+  #themeSlider {
+    display: grid;
+    align-self: center;
     justify-self: center;
   }
-`;
+`
+// window.addEventListener('scroll', { scrollHandler })
 
-
-
-// console.log(pageTitle.innerText);
-
-// function updateTitle(newTitle) =>{
-//   let title = newTitle;
-  
-// }
+// const scrollHandler = () => {}
 
 const Navbar = () => {
   return (
     <Nav>
-      <Link href="/" passHref>
-        <a id="logo">Logo</a>
+      <Link href='/' passHref>
+        <a id='logo'>Logo</a>
       </Link>
-      <h2 id="pageTitle">Welcome to Vance</h2>
-      <div className="menuitems">
+      <h2 id='pageTitle'>Welcome to Vance</h2>
+      <div className='menuitems'>
         <NavbarMenu />
       </div>
+      <div id='themeSlider'>
+        <DarkModeToggle />
+      </div>
     </Nav>
-  );
-};
+  )
+}
 
-
-export default Navbar;
+export default Navbar
